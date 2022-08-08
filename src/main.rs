@@ -10,7 +10,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let rofl = rofl::Rofl::from_file(&rofl_path)?;
     let packets = rofl.dump_packets(true)?;
     for packet in packets.iter() {
-        println!("{:02}:{:09.6},{:04X},{:08X},{:08X}", (packet.time as u32) / 60, packet.time % 60.0, packet.id, packet.param, packet.data.len());
+        println!("{:02}:{:09.6},0x{:04X},0x{:08X},0x{:08X}", (packet.time as u32) / 60, packet.time % 60.0, packet.id, packet.param, packet.data.len());
     }
     Ok(())
 }
